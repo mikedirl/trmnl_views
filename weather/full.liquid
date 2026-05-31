@@ -1,0 +1,56 @@
+<div class="view view--full">
+  <div style="display: flex; flex-direction: column; height: 100%; width: 100%; box-sizing: border-box; gap: 32px;">
+
+    <div style="display: grid; grid-template-columns: 1fr 2fr; flex: 1; width: 100%;">
+
+      <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 8px; border-right: 1px solid #000;">
+        <img src="https://71726354.xyz/icon/{{ data.current.type | downcase }}" alt="{{ data.current.type }}" style="width: 110px; height: 110px;" />
+        <div style="font-size: 36px; font-weight: bold; line-height: 1;">{{ data.current.temp }}ᵒC</div>
+        <div style="font-size: 12px; margin-top: 6px;">Rain {{ data.current.rainper }}% &nbsp;·&nbsp; Wind {{ data.current.wind }}kph</div>
+      </div>
+
+      <table style="width: 100%; height: 100%; border-collapse: collapse; table-layout: fixed; text-align: center; font-size: 13px;">
+        <tr>
+          {% for d in data.daily %}<td style="font-weight: bold; border-bottom: 1px solid #000;">{{ d.day }}</td>{% endfor %}
+        </tr>
+        <tr>
+          {% for d in data.daily %}<td><img src="https://71726354.xyz/icon/{{ d.type | downcase }}" alt="{{ d.type }}" style="width: 36px; height: 36px;" /></td>{% endfor %}
+        </tr>
+        <tr>
+          {% for d in data.daily %}<td>{{ d.maxtemp }}ᵒC</td>{% endfor %}
+        </tr>
+        <tr>
+          {% for d in data.daily %}<td>{{ d.mintemp }}ᵒC</td>{% endfor %}
+        </tr>
+        <tr>
+          {% for d in data.daily %}<td>{{ d.rainper }}%</td>{% endfor %}
+        </tr>
+        <tr>
+          {% for d in data.daily %}<td>{{ d.wind }}kph</td>{% endfor %}
+        </tr>
+      </table>
+
+    </div>
+
+    <div style="flex: 1; width: 100%;">
+      <table style="width: 100%; height: 100%; border-collapse: collapse; table-layout: fixed; text-align: center; font-size: 11px;">
+        <tr>
+          {% for h in data.hourly %}{% assign m = forloop.index0 | modulo: 2 %}{% if m == 0 %}<td style="font-weight: bold; border-bottom: 1px solid #000;">{{ h.hour }}</td>{% endif %}{% endfor %}
+        </tr>
+        <tr>
+          {% for h in data.hourly %}{% assign m = forloop.index0 | modulo: 2 %}{% if m == 0 %}<td><img src="https://71726354.xyz/icon/{{ h.type | downcase }}" alt="{{ h.type }}" style="width: 26px; height: 26px;" /></td>{% endif %}{% endfor %}
+        </tr>
+        <tr>
+          {% for h in data.hourly %}{% assign m = forloop.index0 | modulo: 2 %}{% if m == 0 %}<td>{{ h.temp }}ᵒC</td>{% endif %}{% endfor %}
+        </tr>
+        <tr>
+          {% for h in data.hourly %}{% assign m = forloop.index0 | modulo: 2 %}{% if m == 0 %}<td>{{ h.rainper }}%</td>{% endif %}{% endfor %}
+        </tr>
+        <tr>
+          {% for h in data.hourly %}{% assign m = forloop.index0 | modulo: 2 %}{% if m == 0 %}<td>{{ h.wind }}kph</td>{% endif %}{% endfor %}
+        </tr>
+      </table>
+    </div>
+
+  </div>
+</div>

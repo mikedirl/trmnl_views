@@ -1,0 +1,222 @@
+{
+    "data": {
+        "current": {
+            "type": "CLOUDY",
+            "temp": 10.2,
+            "rainper": 21,
+            "wind": 3
+        },
+        "daily": [
+            {
+                "day": "SAT",
+                "type": "LIGHT_RAIN",
+                "maxtemp": 14.1,
+                "mintemp": 9.5,
+                "rainper": 45,
+                "wind": 13
+            },
+            {
+                "day": "SUN",
+                "type": "CLOUDY",
+                "maxtemp": 13.3,
+                "mintemp": 8.6,
+                "rainper": 25,
+                "wind": 13
+            },
+            {
+                "day": "MON",
+                "type": "CLOUDY",
+                "maxtemp": 13.9,
+                "mintemp": 6.8,
+                "rainper": 20,
+                "wind": 13
+            },
+            {
+                "day": "TUE",
+                "type": "MOSTLY_CLOUDY",
+                "maxtemp": 12.3,
+                "mintemp": 3.2,
+                "rainper": 20,
+                "wind": 13
+            },
+            {
+                "day": "WED",
+                "type": "MOSTLY_CLOUDY",
+                "maxtemp": 12.2,
+                "mintemp": 3.9,
+                "rainper": 20,
+                "wind": 13
+            }
+        ],
+        "hourly": [
+            {
+                "hour": "23",
+                "type": "LIGHT_RAIN",
+                "temp": 10.6,
+                "rainper": 20,
+                "wind": 5
+            },
+            {
+                "hour": "00",
+                "type": "LIGHT_RAIN",
+                "temp": 10.3,
+                "rainper": 20,
+                "wind": 3
+            },
+            {
+                "hour": "01",
+                "type": "LIGHT_RAIN",
+                "temp": 10,
+                "rainper": 25,
+                "wind": 5
+            },
+            {
+                "hour": "02",
+                "type": "LIGHT_RAIN",
+                "temp": 9.8,
+                "rainper": 25,
+                "wind": 5
+            },
+            {
+                "hour": "03",
+                "type": "LIGHT_RAIN",
+                "temp": 9.8,
+                "rainper": 25,
+                "wind": 5
+            },
+            {
+                "hour": "04",
+                "type": "LIGHT_RAIN",
+                "temp": 9.7,
+                "rainper": 25,
+                "wind": 6
+            },
+            {
+                "hour": "05",
+                "type": "LIGHT_RAIN",
+                "temp": 9.6,
+                "rainper": 25,
+                "wind": 6
+            },
+            {
+                "hour": "06",
+                "type": "LIGHT_RAIN",
+                "temp": 9.5,
+                "rainper": 25,
+                "wind": 8
+            },
+            {
+                "hour": "07",
+                "type": "LIGHT_RAIN",
+                "temp": 9.5,
+                "rainper": 25,
+                "wind": 8
+            },
+            {
+                "hour": "08",
+                "type": "LIGHT_RAIN",
+                "temp": 9.8,
+                "rainper": 25,
+                "wind": 10
+            },
+            {
+                "hour": "09",
+                "type": "LIGHT_RAIN",
+                "temp": 10.4,
+                "rainper": 25,
+                "wind": 10
+            },
+            {
+                "hour": "10",
+                "type": "LIGHT_RAIN",
+                "temp": 10.9,
+                "rainper": 20,
+                "wind": 11
+            },
+            {
+                "hour": "11",
+                "type": "LIGHT_RAIN",
+                "temp": 11.5,
+                "rainper": 20,
+                "wind": 10
+            },
+            {
+                "hour": "12",
+                "type": "CLOUDY",
+                "temp": 12,
+                "rainper": 10,
+                "wind": 11
+            },
+            {
+                "hour": "13",
+                "type": "CLOUDY",
+                "temp": 12.6,
+                "rainper": 10,
+                "wind": 11
+            },
+            {
+                "hour": "14",
+                "type": "CLOUDY",
+                "temp": 13,
+                "rainper": 10,
+                "wind": 11
+            },
+            {
+                "hour": "15",
+                "type": "MOSTLY_CLOUDY",
+                "temp": 13.2,
+                "rainper": 10,
+                "wind": 11
+            },
+            {
+                "hour": "16",
+                "type": "MOSTLY_CLOUDY",
+                "temp": 13.3,
+                "rainper": 10,
+                "wind": 13
+            },
+            {
+                "hour": "17",
+                "type": "CLOUDY",
+                "temp": 13.3,
+                "rainper": 10,
+                "wind": 13
+            },
+            {
+                "hour": "18",
+                "type": "CLOUDY",
+                "temp": 13,
+                "rainper": 10,
+                "wind": 13
+            },
+            {
+                "hour": "19",
+                "type": "MOSTLY_CLOUDY",
+                "temp": 12.6,
+                "rainper": 10,
+                "wind": 13
+            },
+            {
+                "hour": "20",
+                "type": "PARTLY_CLOUDY",
+                "temp": 11.9,
+                "rainper": 5,
+                "wind": 11
+            },
+            {
+                "hour": "21",
+                "type": "MOSTLY_CLOUDY",
+                "temp": 11.1,
+                "rainper": 10,
+                "wind": 10
+            },
+            {
+                "hour": "22",
+                "type": "MOSTLY_CLOUDY",
+                "temp": 10.6,
+                "rainper": 10,
+                "wind": 10
+            }
+        ]
+    }
+}
