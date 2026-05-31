@@ -1,0 +1,31 @@
+<div class="view view--full">
+  <div class="layout layout--col layout--top gap--medium" style="justify-content: flex-start;">
+    <div class="title title--large">Celbridge Bus Times</div>
+    <div class="grid grid--cols-3 gap--large w--full" style="align-items: start;">
+      <div class="col col--start gap--small">
+        <div class="title">Aldi</div>
+        <ul class="list">
+          {% for time in data.aldi limit:15 %}
+            <li class="list--item">{{ time }}</li>
+          {% endfor %}
+        </ul>
+      </div>
+      <div class="col col--start gap--small">
+        <div class="title">Agards</div>
+        <ul class="list">
+          {% for time in data.agards limit:15 %}
+            <li class="list--item">{{ time }}</li>
+          {% endfor %}
+        </ul>
+      </div>
+      <div class="col col--start gap--small">
+        <div class="title">Village</div>
+        <ul class="list">
+          {% for time in data.village limit:15 %}
+            <li class="list--item">{{ time }}</li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

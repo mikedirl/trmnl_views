@@ -1,0 +1,23 @@
+<div class="view view--full">
+  <div class="layout layout--col gap--none" style="height: 100%; width: 100%;">
+    <div style="display: grid; grid-template-columns: repeat(7, 1fr); width: 100%;">
+      {% assign days_of_week = "MON,TUE,WED,THU,FRI,SAT,SUN" | split: "," %}
+      {% for dow in days_of_week %}
+        <div style="text-align: center; font-weight: bold; padding: 6px 0; font-size: 14px;">{{ dow }}</div>
+      {% endfor %}
+    </div>
+    <div style="display: grid; grid-template-columns: repeat(7, 1fr); grid-template-rows: repeat(5, 1fr); flex: 1; width: 100%; border-top: 1px solid #000; border-left: 1px solid #000;">
+      {% for day in data %}
+        <div style="border-right: 1px solid #000; border-bottom: 1px solid #000; padding: 4px; overflow: hidden;">
+          {% assign dayNum = day.eventDate | split: "/" | first | times: 1 %}
+          <div style="font-size: 14px; margin-bottom: 2px;">
+            <span style="{% if day.isToday %}font-weight: bold; background-color: #000; color: #fff; padding: 0 4px;{% endif %}">{{ dayNum }}</span>
+          </div>
+          {% for detail in day.eventDetail %}
+            <div style="font-size: 11px; line-height: 1.2;">{{ detail }}</div>
+          {% endfor %}
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
