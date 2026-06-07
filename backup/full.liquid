@@ -1,0 +1,133 @@
+<div class="view view--full">
+  <div style="display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr; height: 100%; width: 100%; box-sizing: border-box;">
+
+    {% comment %} ===== TOP LEFT: Calendar ===== {% endcomment %}
+    <div style="overflow: hidden; min-width: 0; min-height: 0; box-sizing: border-box; border-right: 1px solid #000; border-bottom: 1px solid #000; padding: 8px;">
+      <div class="layout layout--col gap--none" style="height: 100%; width: 100%; overflow: hidden;">
+        <div style="width: 100%; text-align: center; font-size: 9px;">{{ lastRefresh }}</div>
+        <div style="display: grid; grid-template-columns: repeat(7, 1fr); width: 100%;">
+          {% assign days_of_week = "MON,TUE,WED,THU,FRI,SAT,SUN" | split: "," %}
+          {% for dow in days_of_week %}
+            <div style="text-align: center; font-weight: bold; padding: 6px 0; font-size: 14px;">{{ dow }}</div>
+          {% endfor %}
+        </div>
+        <div style="display: grid; grid-template-columns: repeat(7, 1fr); grid-template-rows: repeat(5, 1fr); flex: 1; width: 100%; border-top: 1px solid #000; border-left: 1px solid #000; overflow: hidden;">
+          {% for day in calendar %}
+            <div style="border-right: 1px solid #000; border-bottom: 1px solid #000; padding: 4px; overflow: hidden;">
+              {% assign dayNum = day.eventDate | split: "/" | first | times: 1 %}
+              <div style="font-size: 14px; margin-bottom: 2px;">
+                <span style="{% if day.isToday %}font-weight: bold; background-color: #000; color: #fff; padding: 0 4px;{% endif %}">{{ dayNum }}</span>
+              </div>
+              {% for detail in day.eventDetail %}
+                <div style="font-size: 11px; line-height: 1.2;">{{ detail }}</div>
+              {% endfor %}
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+
+    {% comment %} ===== TOP RIGHT: Weather ===== {% endcomment %}
+    <div style="overflow: hidden; min-width: 0; min-height: 0; box-sizing: border-box; border-bottom: 1px solid #000; padding: 8px;">
+      <div style="display: flex; flex-direction: column; height: 100%; width: 100%; box-sizing: border-box; gap: 32px; overflow: hidden;">
+
+        <div style="display: grid; grid-template-columns: 1fr 2fr; flex: 1; width: 100%; min-height: 0; overflow: hidden;">
+
+          <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 8px; border-right: 1px solid #000;">
+            <img src="https://71726354.xyz/icon/{{ weather.current.type | downcase }}" alt="{{ weather.current.type }}" style="width: 110px; height: 110px;" />
+            <div style="font-size: 36px; font-weight: bold; line-height: 1;">{{ weather.current.temp }}ᵒC</div>
+            <div style="font-size: 12px; margin-top: 6px;">Rain {{ weather.current.rainper }}% &nbsp;·&nbsp; Wind {{ weather.current.wind }}kph</div>
+          </div>
+
+          <table style="width: 100%; height: 100%; border-collapse: collapse; table-layout: fixed; text-align: center; font-size: 13px;">
+            <tr>
+              {% for d in weather.daily %}<td style="font-weight: bold; border-bottom: 1px solid #000;">{{ d.day }}</td>{% endfor %}
+            </tr>
+            <tr>
+              {% for d in weather.daily %}<td><img src="https://71726354.xyz/icon/{{ d.type | downcase }}" alt="{{ d.type }}" style="width: 36px; height: 36px;" /></td>{% endfor %}
+            </tr>
+            <tr>
+              {% for d in weather.daily %}<td>{{ d.maxtemp }}ᵒC</td>{% endfor %}
+            </tr>
+            <tr>
+              {% for d in weather.daily %}<td>{{ d.mintemp }}ᵒC</td>{% endfor %}
+            </tr>
+            <tr>
+              {% for d in weather.daily %}<td>{{ d.rainper }}%</td>{% endfor %}
+            </tr>
+            <tr>
+              {% for d in weather.daily %}<td>{{ d.wind }}kph</td>{% endfor %}
+            </tr>
+          </table>
+
+        </div>
+
+        <div style="flex: 1; width: 100%; min-height: 0; overflow: hidden;">
+          <table style="width: 100%; height: 100%; border-collapse: collapse; table-layout: fixed; text-align: center; font-size: 11px;">
+            <tr>
+              {% for h in weather.hourly %}{% assign m = forloop.index0 | modulo: 2 %}{% if m == 0 %}<td style="font-weight: bold; border-bottom: 1px solid #000;">{{ h.hour }}</td>{% endif %}{% endfor %}
+            </tr>
+            <tr>
+              {% for h in weather.hourly %}{% assign m = forloop.index0 | modulo: 2 %}{% if m == 0 %}<td><img src="https://71726354.xyz/icon/{{ h.type | downcase }}" alt="{{ h.type }}" style="width: 26px; height: 26px;" /></td>{% endif %}{% endfor %}
+            </tr>
+            <tr>
+              {% for h in weather.hourly %}{% assign m = forloop.index0 | modulo: 2 %}{% if m == 0 %}<td>{{ h.temp }}ᵒC</td>{% endif %}{% endfor %}
+            </tr>
+            <tr>
+              {% for h in weather.hourly %}{% assign m = forloop.index0 | modulo: 2 %}{% if m == 0 %}<td>{{ h.rainper }}%</td>{% endif %}{% endfor %}
+            </tr>
+            <tr>
+              {% for h in weather.hourly %}{% assign m = forloop.index0 | modulo: 2 %}{% if m == 0 %}<td>{{ h.wind }}kph</td>{% endif %}{% endfor %}
+            </tr>
+          </table>
+        </div>
+
+      </div>
+    </div>
+
+    {% comment %} ===== BOTTOM LEFT: Bus Times ===== {% endcomment %}
+    <div style="overflow: hidden; min-width: 0; min-height: 0; box-sizing: border-box; border-right: 1px solid #000; padding: 8px;">
+      <div class="layout layout--col layout--top gap--medium" style="justify-content: flex-start; height: 100%; overflow: hidden;">
+        <div class="title title--large">Celbridge Bus Times</div>
+        <div class="grid grid--cols-3 gap--large w--full" style="align-items: start;">
+          <div class="col col--start gap--small">
+            <div class="title">Aldi</div>
+            <ul class="list">
+              {% for time in bustimes.aldi limit:15 %}
+                <li class="list--item">{{ time }}</li>
+              {% endfor %}
+            </ul>
+          </div>
+          <div class="col col--start gap--small">
+            <div class="title">Agards</div>
+            <ul class="list">
+              {% for time in bustimes.agards limit:15 %}
+                <li class="list--item">{{ time }}</li>
+              {% endfor %}
+            </ul>
+          </div>
+          <div class="col col--start gap--small">
+            <div class="title">Village</div>
+            <ul class="list">
+              {% for time in bustimes.village limit:15 %}
+                <li class="list--item">{{ time }}</li>
+              {% endfor %}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    {% comment %} ===== BOTTOM RIGHT: Joke ===== {% endcomment %}
+    <div style="overflow: hidden; min-width: 0; min-height: 0; box-sizing: border-box; padding: 8px;">
+      <div style="display: flex; flex-direction: column; height: 100%; width: 100%; box-sizing: border-box; overflow: hidden;">
+        <div style="flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 0 32px; overflow: hidden;">
+          <div style="font-size: 32px; font-weight: bold; font-style: italic; line-height: 1.3;">{{ joke.setup }}</div>
+          <div style="height: 2.6em;"></div>
+          <div style="font-size: 32px; font-weight: bold; font-style: normal; line-height: 1.3;">{{ joke.punchline }}</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

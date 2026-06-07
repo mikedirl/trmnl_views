@@ -8,7 +8,7 @@
       {% endfor %}
     </div>
     <div style="display: grid; grid-template-columns: repeat(7, 1fr); grid-template-rows: repeat(5, 1fr); flex: 1; width: 100%; border-top: 1px solid #000; border-left: 1px solid #000;">
-      {% for day in data %}
+      {% for day in calendar %}
         <div style="border-right: 1px solid #000; border-bottom: 1px solid #000; padding: 4px; overflow: hidden;">
           {% assign dayNum = day.eventDate | split: "/" | first | times: 1 %}
           <div style="font-size: 14px; margin-bottom: 2px;">

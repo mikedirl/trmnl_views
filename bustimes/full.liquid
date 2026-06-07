@@ -5,7 +5,7 @@
       <div class="col col--start gap--small">
         <div class="title">Aldi</div>
         <ul class="list">
-          {% for time in data.aldi limit:15 %}
+          {% for time in bustimes.aldi limit:15 %}
             <li class="list--item">{{ time }}</li>
           {% endfor %}
         </ul>
@@ -13,7 +13,7 @@
       <div class="col col--start gap--small">
         <div class="title">Agards</div>
         <ul class="list">
-          {% for time in data.agards limit:15 %}
+          {% for time in bustimes.agards limit:15 %}
             <li class="list--item">{{ time }}</li>
           {% endfor %}
         </ul>
@@ -21,7 +21,7 @@
       <div class="col col--start gap--small">
         <div class="title">Village</div>
         <ul class="list">
-          {% for time in data.village limit:15 %}
+          {% for time in bustimes.village limit:15 %}
             <li class="list--item">{{ time }}</li>
           {% endfor %}
         </ul>
